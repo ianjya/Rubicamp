@@ -17,5 +17,3 @@ function indexPrime(param1){
 }
 
 indexPrime(3);
-
-
