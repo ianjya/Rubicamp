@@ -21,6 +21,4 @@ function deretKaskus(n){
     }
     return end;
 }
- 
-
 console.log(deretKaskus(10));
