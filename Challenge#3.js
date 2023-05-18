@@ -24,7 +24,6 @@ function romawi(number) {
         number -= angkaRomawi[i].value;
       }
     }
-  
     return result;
   }
   
