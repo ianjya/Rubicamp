@@ -13,7 +13,7 @@ function stringManipulation(word) {
         const result =  letters.join('') + "nyo" ;
 
         return result;
-    }
+    } 
     }
   
 console.log(stringManipulation("bebek"))
