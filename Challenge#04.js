@@ -15,5 +15,4 @@ function indexPrime(param1){
     }
     console.log(bahan - 1);
 }
-
 indexPrime(3);

@@ -17,7 +17,6 @@ function deretKaskus(n){
         } else {
             end.push(result[j])
         }
-        
     }
     return end;
 }
