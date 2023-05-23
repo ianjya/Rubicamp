@@ -14,7 +14,6 @@ function separateWords(sentence) {
         separatedWords.push(asd)
     }
     }
-  
     return separatedWords.join(' ');
 }
 console.log(separateWords("ibu tidak pernah aku"))
