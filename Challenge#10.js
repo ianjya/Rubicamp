@@ -8,7 +8,6 @@ const rl = readline.createInterface({
 rl.prompt();
 
 rl.on("line", (line) => {
-  separateWords(line);
   console.log(`hasil konversi: ${separateWords(line)}`);
 
   rl.prompt();
