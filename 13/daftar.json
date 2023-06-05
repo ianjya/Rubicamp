@@ -1,32 +1,37 @@
 [
   {
-    "list": "12333",
-    "complete": false,
-    "tag": ""
-  },
-  {
-    "list": "asdasd",
-    "complete": false,
-    "tag": ""
-  },
-  {
-    "list": "asdasdasd",
+    "list": "fungsi add",
     "complete": true,
     "tag": ""
   },
   {
-    "list": "udin",
+    "list": "fungsi list",
     "complete": true,
     "tag": ""
   },
   {
-    "list": "bagus",
-    "complete": false,
+    "list": "fungsi complete",
+    "complete": true,
     "tag": ""
   },
   {
-    "list": "marimas",
-    "complete": false,
+    "list": "fungsi uncomplete",
+    "complete": true,
+    "tag": ""
+  },
+  {
+    "list": "fungsi uncompleted",
+    "complete": true,
+    "tag": ""
+  },
+  {
+    "list": "fungsi completed",
+    "complete": true,
+    "tag": ""
+  },
+  {
+    "list": "fungsi filter",
+    "complete": true,
     "tag": ""
   }
 ]
