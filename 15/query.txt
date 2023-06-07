@@ -13,7 +13,7 @@ sqlite> UPDATE mahasiswa SET usia = 20 WHERE nama IN ('udin', 'beti');
 sqlite> UPDATE kontrak SET nilai = 'C' WHERE nim IN ('M01', 'M05');
 !!-- cek data input nilai --!!
 sqlite> select nim, nama, idMataKuliah, namaMataKuliah, nilai FROM kontrak JOIN mahasiswa using (nim) JOIN mataKuliah using (idMataKuliah);
-**sqlite> SELECT nama, namaMataKuliah, nilai FROM kontrak JOIN mahasiswa USING (nim) JOIN mataKuliah USING (idMataKuliah);
+**sqlite> SELECT nama, namaMataKuliah, nilai FROM kontrak JOIN mahasiswa USING (nim) JOIN mataKuliah USING (idMataKuliah) WHERE nilai <= 'B';
 
 -- 4. Tampilkan mahasiswa yang memiliki jumlah SKS lebih dari 10
 sqlite> UPDATE mataKuliah SET sks = '13' WHERE idMataKuliah IN ('OP1,'IL1','FL4','TE4')
