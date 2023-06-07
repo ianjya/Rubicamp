@@ -33,4 +33,4 @@ sqlite> SELECT dosen.nama AS nama_dosen, COUNT(DISTINCT kontrak.nim) AS jumlah_m
 sqlite> SELECT * FROM mahasiswa ORDER BY usia ASC;
 
 -- 8. Tampilkan kontrak mataKuliah yang harus diulang (nilai D/E), serta tampilkan data mahasiswa, jurusan, dosen secara lengkap 
-**sqlite> SELECT nim, mahasiswa.nama, idMataKuliah, nip, dosen.nama, nilai FROM kontrak JOIN mahasiswa USING (nim) JOIN dosen USING (nip) WHERE nilai = 'D';
+**sqlite> SELECT nim, mahasiswa.nama, idMataKuliah, nip, dosen.nama, nilai FROM kontrak JOIN mahasiswa USING (nim) JOIN dosen USING (nip) WHERE nilai > 'C';
