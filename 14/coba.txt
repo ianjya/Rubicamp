@@ -1,0 +1,49 @@
+// dosen = nip & nama
+CREATE TABLE dosen (nip varchar(4) PRIMARY KEY NOT NULL, nama varchar(100) NOT NULL);
+INSERT INTO dosen (nip, nama) values ();
+
+// matkul = id_mk & namaMatkul & sks & dosen.nip
+CREATE TABLE matkul (id_mk varchar(3) PRIMARY KEY , namaMataKuliah varchar(100) NOT NULL, sks INTEGER (20), nip varchar(4) NOT NULL, foreign key (nip) references dosen(nip));
+INSERT INTO matkul (id_mk, namaMataKuliah, sks, nip) VALUES ()
+
+// jurusan = id_js & namaJurusan & id_mk 
+CREATE TABLE jurusan (id_js varchar(4) PRIMARY KEY NOT NULL, namaJurusan varchar(100) NOT NULL);
+INSERT INTO jurusan (id_mk, namaJurusan, id_mk) VALUES ()
+**
+INSERT INTO jurusan (id_js, namaJurusan, id_mk) VALUES ('JA01', 'IPA', 'D01');
+INSERT INTO jurusan (id_js, namaJurusan, id_mk) VALUES ('JA01', 'IPA', 'D02');
+**
+// mahasiswa = nim & nama & jurusan
+CREATE TABLE mahasiswa (nim varchar(4) PRIMARY KEY NOT NULL, nama varchar(100) NOT NULL);
+INSERT INTO mahasiswa (id_mk, namaMataKuliah, sks) VALUES ()
+
+~~~~~~~~
+SELECT * FROM <nama_tabel>;
+SELECT * FROM <nama_tabel> join <nama_tabel> using (PRIMARY KEY);
+
+
+
+// (SELECT yang digunakan)
+SELECT dosen.nip, dosen.nama, matkul.sks FROM dosen JOIN matkul ON dosen.nip = matkul.nip;
+SELECT * FROM dosen join matkul using (nip);
+select dosen.nama, matkul.sks FROM dosen join matkul ON dosen.nip = matkul.nip WHERE matkul.sks >= 3;
+
+// (INSERT INTO yang digunakan)
+INSERT INTO matkul (namaMataKuliah, sks) VALUES ('fisika', '3', '0005');
+
+
+////////////////////////////////
+INSERT INTO matkul (id_mk, namaMataKuliah, sks, nip) VALUES ('D01','biologi', '1','0005'),('D02','kimia', '2','0005'),('D03','perangkat.keras', '2','0005'),('D04','komp.logic', '5', '0001'),('D05','b.arab', '3', '0001');
+INSERT INTO matkul (id_mk, namaMataKuliah, sks, nip) VALUES 
+INSERT INTO matkul (id_mk, namaMataKuliah, sks, nip) VALUES 
+INSERT INTO matkul (id_mk, namaMataKuliah, sks, nip) VALUES 
+INSERT INTO matkul (id_mk, namaMataKuliah, sks, nip) VALUES 
+
+INSERT INTO matkul (id_mk, namaMataKuliah, sks, nip) VALUES ('D09','b.jepang', '1', '0003')
+
+
+INSERT INTO matkul (id_mk, namaMataKuliah, sks) VALUES ('D06','b.inggris', '5');
+INSERT INTO matkul (id_mk, namaMataKuliah, sks) VALUES ('D07','mat.minat', '2');
+INSERT INTO matkul (id_mk, namaMataKuliah, sks) VALUES ('D08','mat.umum', '2');
+INSERT INTO matkul (id_mk, namaMataKuliah, sks) VALUES ('D10','b.jerman', '3');
+INSERT INTO matkul (id_mk, namaMataKuliah, sks) VALUES ('D11','seni', '1');

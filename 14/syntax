@@ -1,0 +1,48 @@
+CREATE TABLE dosen (nip varchar(2) PRIMARY KEY NOT NULL, nama VARCHAR(100) NOT NULL);
+CREATE TABLE mahasiswa (nim varchar(3) PRIMARY KEY NOT NULL, nama VARCHAR(100) NOT NULL, jurusan text, alamat text);
+CREATE TABLE jurusan (idJurusan varchar(3) PRIMARY KEY NOT NULL, namaJurusan VARCHAR(100) NOT NULL);
+CREATE TABLE mataKuliah (idMataKuliah varchar(3) PRIMARY KEY NOT NULL, namaMataKuliah VARCHAR (100) NOT NULL, sks integer(10));
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+//
+INSERT INTO dosen (nip, nama) VALUES ('A1', 'agus'), ('A2', 'budi'), ('A3', 'cici'), ('A4', 'dodi');
+INSERT INTO mahasiswa (nim, nama, jurusan, alamat) VALUES ('M01', 'udin', 'ilkom', 'bandung'), ('M02', 'beti', 'dkv', 'bandung'), ('M03', 'silvi', 'dkv', 'tanggerang'),('M04','joji','filsafat','bekasi'),('M05','ali','teknik','jakarta');
+INSERT INTO jurusan (idJurusan, namaJurusan) VALUES ('IK1', 'ilmuKomunikasi'), ('DK4', 'desainKV'), ('FS4', 'filsafat'), ('TK4','teknik');
+INSERT INTO mataKuliah (idMataKuliah, namaMataKuliah, sks) VALUES ('OP1', 'Menggambar', '2'),('OP2', 'Melukis', '2'),('OP3', 'Ilustrasi', '2'),('OP4', 'Fotografi', '2');
+INSERT INTO mataKuliah (idMataKuliah, namaMataKuliah, sks) VALUES ('IK1', 'b.inggris', '2'),('IK2', 'b.jepang', '3'),('IK3', 'b.jerman', '1'),('IK4', 'b.arab', '2');
+INSERT INTO mataKuliah (idMataKuliah, namaMataKuliah, sks) VALUES ('FS1', 'Sejarah', '2'),('FS2', 'Metafisika', '1'),('FS3', 'Estetika', '1'),('FS4', 'Logika', '2');
+INSERT INTO mataKuliah (idMataKuliah, namaMataKuliah, sks) VALUES ('TE1', 'Matematika', '5'),('TE2', 'Kimia', '1'),('TE3', 'Mesin', '1'),('TE4', 'Sipil', '1');
+
+
+//-- UPDATE MATAKULIAH --
+CREATE TABLE mataKuliah (idMataKuliah varchar(3) PRIMARY KEY NOT NULL, namaMataKuliah VARCHAR (100) NOT NULL, sks integer(10),  idJurusan VARCHAR(3) NOT NULL, FOREIGN KEY (idJurusan) REFERENCES jurusan (idJurusan));
+INSERT INTO mataKuliah (idJurusan, idMataKuliah, namaMataKuliah, sks) VALUES ('DK4','OP1', 'Menggambar', '2'),
+('DK4','OP2', 'Melukis', '2'),('DK4','OP3', 'Ilustrasi', '2'),('DK4','OP4', 'Fotografi', '2'),
+('IK1','IL1', 'b.inggris', '2'),('IK1','IL2', 'b.jepang', '3'),('IK1','IL3', 'b.jerman', '1'),
+('IK1','IL4', 'b.arab', '2'),('FS4','FL1', 'Sejarah', '2'),('FS4','FL2', 'Metafisika', '1'),
+('FS4','FL3', 'Estetika', '1'),('FS4','FL4', 'Logika', '2'),('TK4','TE1', 'Matematika', '5'),
+('TK4','TE2', 'Kimia', '1'),('TK4','TE3', 'Mesin', '1'),('TK4','TE4', 'Sipil', '1');
+
+
+//-- UPDATE MAHASISWA --
+CREATE TABLE mahasiswa (nim varchar(3) PRIMARY KEY NOT NULL, nama VARCHAR(100) NOT NULL, alamat text, idJurusan VARCHAR(3) NOT NULL, FOREIGN KEY (idJurusan) REFERENCES jurusan (idJurusan) );
+INSERT INTO mahasiswa (nim, nama, alamat, idJurusan) VALUES ('M01', 'udin', 'bandung','FS4'), 
+('M02', 'beti', 'bandung','TK4'), ('M03', 'silvi', 'tanggerang','DK4'),
+('M04','joji','bekasi','FS4'),('M05','ali','jakarta','IK4');
+
+// --------------------------------
+CREATE TABLE kontrak (idKontrak INTEGER PRIMARY KEY AUTOINCREMENT, nim VARCHAR(3) NOT NULL, idMataKuliah VARCHAR(3) NOT NULL, nip VARCHAR(2) NOT NULL, FOREIGN KEY (idMataKuliah) REFERENCES mataKuliah (idMataKuliah), FOREIGN KEY (nip) REFERENCES dosen (nip), FOREIGN KEY (nim) REFERENCES mahasiswa (nim));
+INSERT INTO kontrak (nim, idMataKuliah, nip) VALUES 
+('M03','OP1','A2'),
+('M01','FL2','A1'),
+('M02','TE3', 'A3'),
+('M04', 'IL4','A4'),
+('M05', 'IL1','A1'),
+('M03', 'OP2','A2'),
+('M03', 'OP3','A3');
+
+
+SELECT dosen.nama AS nama_dosen, COUNT(DISTINCT kontrak.nim) AS jumlah_mahasiswa
+FROM kontrak
+JOIN dosen ON kontrak.nip = dosen.nip
+GROUP BY dosen.nama;

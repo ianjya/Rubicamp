@@ -1,0 +1,27 @@
+[
+  {
+    "list": "buat fitur add",
+    "complete": true,
+    "tag": ""
+  },
+  {
+    "list": "buat fitur list",
+    "complete": true,
+    "tag": "udin udinmantap, keren"
+  },
+  {
+    "list": "buat fitur complete dan uncompleted",
+    "complete": true,
+    "tag": ""
+  },
+  {
+    "list": "buat fitur melihat task yg sudah complete atau belum",
+    "complete": true,
+    "tag": "masak"
+  },
+  {
+    "list": "buat fitur filter untuk saring pekerjaan",
+    "complete": false,
+    "tag": "masak"
+  }
+]

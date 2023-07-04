@@ -1,0 +1,9 @@
+{
+  "name": "index.js",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "cli-table": "^0.3.11",
+    "sqlite3": "^5.1.6"
+  }
+}
