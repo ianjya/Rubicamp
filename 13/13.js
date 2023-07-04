@@ -21,8 +21,14 @@ let n = sentences[0];
 
 switch (argv2) {
   case undefined:
+<<<<<<< HEAD
     console.log(`      >>> JS TODO <<<
 command "help" untuk menampilkan bantuan`);
+=======
+    console.log(`
+      >>> JS TODO <<<
+      command "help" untuk menampilkan bantuan`);
+>>>>>>> 2aae6e1db83992121fe8b081200effdb17962e21
     rl.close();
     break;
 

@@ -39,6 +39,7 @@ INSERT INTO kontrak (nim, idMataKuliah, nip) VALUES
 ('M04', 'IL4','A4'),
 ('M05', 'IL1','A1'),
 ('M03', 'OP2','A2'),
+<<<<<<< HEAD
 ('M03', 'OP3','A3');
 
 
@@ -46,3 +47,6 @@ SELECT dosen.nama AS nama_dosen, COUNT(DISTINCT kontrak.nim) AS jumlah_mahasiswa
 FROM kontrak
 JOIN dosen ON kontrak.nip = dosen.nip
 GROUP BY dosen.nama;
+=======
+('M03', 'OP3','A3');
+>>>>>>> 2aae6e1db83992121fe8b081200effdb17962e21
